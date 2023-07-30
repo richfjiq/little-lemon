@@ -1,15 +1,8 @@
 import './App.css';
-import { Footer, Header, Main, Navbar } from './components';
+import Navigation from './routes/Navigation';
 
 function App() {
-  return (
-    <>
-      <Header />
-      <Navbar />
-      <Main />
-      <Footer />
-    </>
-  );
+  return <Navigation />;
 }
 
 export default App;
