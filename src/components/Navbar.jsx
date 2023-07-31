@@ -4,7 +4,7 @@ import { ReactComponent as Basket } from '../assets/basket.svg';
 
 const Navbar = () => {
   return (
-    <nav className="navbar">
+    <nav>
       <div className="navbar_container">
         <Menu className="navbar_menu_icon" />
         <Logo className="navbar_logo" />
