@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import imageFood from '../assets/header_food.jpg';
 
 const Header = () => {
@@ -11,7 +12,9 @@ const Header = () => {
             We are a family owned Mediterranean restaurant, focused on
             traditional recipes served with a modern twist
           </p>
-          <button>Reserve a Table</button>
+          <Link to={'/booking'}>
+            <button>Reserve a Table</button>
+          </Link>
         </div>
         <img
           className="header_image"

@@ -5,3 +5,4 @@ export { default as Header } from './Header';
 export { default as HomePage } from './HomePage';
 export { default as Main } from './Main';
 export { default as Navbar } from './Navbar';
+export { default as Testimonials } from './Testimonials';

@@ -268,6 +268,76 @@ header button {
   margin-right: 15px;
 }
 
+/* Testimonials */
+
+.testimonials {
+  background-color: #495e57;
+  width: 100%;
+  height: 590px;
+  display: flex;
+  justify-content: center;
+}
+
+.testimonials h2 {
+  font-size: 64px;
+  font-family: 'Markazi Text';
+  font-weight: 600;
+  color: #f4ce14;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 60px;
+}
+
+.testimonials_container {
+  max-width: 860px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.testimonials_cards_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Card testimonial */
+
+.card_testimonial {
+  width: 200px;
+  height: 175px;
+  box-sizing: border-box;
+  padding: 15px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.card_testimonial h3 {
+  margin: 0;
+  font-family: 'Karla';
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.card_testimonial p {
+  margin: 0;
+  font-family: 'Karla';
+  font-size: 16px;
+}
+
+.card_testimonial_image {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.card_testimonial_image img {
+  width: 50px;
+  height: 50px;
+}
+
 @media (max-width: 900px) {
   /* Navbar */
 
