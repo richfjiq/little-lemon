@@ -273,7 +273,7 @@ header button {
 .testimonials {
   background-color: #495e57;
   width: 100%;
-  height: 590px;
+  height: 500px;
   display: flex;
   justify-content: center;
 }
@@ -396,14 +396,71 @@ header button {
 .about_image_a {
   width: 275px;
   height: 340px;
+  object-fit: cover;
 }
 
 .about_image_b {
   width: 275px;
   height: 340px;
+  object-fit: cover;
   position: absolute;
   top: 0;
   right: 0;
+}
+
+/* Footer */
+
+footer {
+  width: 100%;
+  height: 400px;
+  background-color: #495e57;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer img {
+  height: 280px;
+  cursor: pointer;
+}
+
+footer h3 {
+  font-size: 20px;
+  font-weight: 900;
+  font-family: 'Karla';
+  margin-top: 0;
+  color: white;
+  text-align: center;
+}
+
+footer ul {
+  padding: 0;
+  text-align: center;
+}
+
+footer li {
+  font-family: 'Karla';
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.footer_container {
+  max-width: 860px;
+  width: 100%;
+  height: 280px;
+  display: flex;
+}
+
+.footer_subcontainer {
+  width: 25%;
+}
+
+.footer_media_icon {
+  width: 20px;
+  height: 20px;
 }
 
 @media (max-width: 900px) {
