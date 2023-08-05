@@ -1,15 +1,20 @@
 import footerLogo from '../assets/logo_footer.png';
+import footerLogoWhite from '../assets/logo_footer_white.png';
 import { ReactComponent as Facebook } from '../assets/facebook_white.svg';
 import { ReactComponent as Instagram } from '../assets/instagram_white.svg';
 import { ReactComponent as TikTok } from '../assets/tiktok_white.svg';
 import { ReactComponent as WhatsApp } from '../assets/whatsapp_white.svg';
 
-const Footer = () => {
+const Footer = ({ white = false }) => {
   return (
-    <footer>
+    <footer style={white ? { color: '#495e57', backgroundColor: 'white' } : {}}>
       <div className="footer_container">
         <div className="footer_subcontainer">
-          <img src={footerLogo} alt="Logo" />
+          {white ? (
+            <img src={footerLogoWhite} alt="Logo" />
+          ) : (
+            <img src={footerLogo} alt="Logo" />
+          )}
         </div>
         <div className="footer_subcontainer">
           <h3>Navigation</h3>
@@ -34,16 +39,32 @@ const Footer = () => {
           <h3>Social Media</h3>
           <ul>
             <li>
-              <Facebook className="footer_media_icon" />
+              <Facebook
+                className={`footer_media_icon ${
+                  white ? 'footer_media_icon_green' : ''
+                }`}
+              />
             </li>
             <li>
-              <Instagram className="footer_media_icon" />
+              <Instagram
+                className={`footer_media_icon ${
+                  white ? 'footer_media_icon_green' : ''
+                }`}
+              />
             </li>
             <li>
-              <TikTok className="footer_media_icon" />
+              <TikTok
+                className={`footer_media_icon ${
+                  white ? 'footer_media_icon_green' : ''
+                }`}
+              />
             </li>
             <li>
-              <WhatsApp className="footer_media_icon" />
+              <WhatsApp
+                className={`footer_media_icon ${
+                  white ? 'footer_media_icon_green' : ''
+                }`}
+              />
             </li>
           </ul>
         </div>
