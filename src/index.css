@@ -518,6 +518,15 @@ footer li {
 
 /* Booking Form */
 
+.booking_form_header {
+  font-size: 64px;
+  font-family: 'Markazi Text';
+  font-weight: 600;
+  line-height: 0;
+  color: #f4ce14;
+  margin-top: 100px;
+}
+
 form {
   display: flex;
   width: 800px;
