@@ -38,6 +38,7 @@ const Main = () => {
         <div className="specials_card_container">
           {dishes.map(({ title, description, price, image }) => (
             <CardDish
+              key={title}
               title={title}
               description={description}
               price={price}

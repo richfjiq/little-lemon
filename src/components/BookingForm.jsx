@@ -1,14 +1,11 @@
-const availableTimes = [
-  'Select date',
-  '17:00',
-  '18:00',
-  '19:00',
-  '20:00',
-  '21:00',
-  '22:00',
-];
-
-export const BookingForm = ({ onChange, date, time, guests, occasion }) => {
+export const BookingForm = ({
+  onChange,
+  date,
+  time,
+  guests,
+  occasion,
+  availableTimes,
+}) => {
   return (
     <>
       <h1 className="booking_form_header">Book Now</h1>
@@ -26,13 +23,23 @@ export const BookingForm = ({ onChange, date, time, guests, occasion }) => {
           </div>
           <div className="form_input_container">
             <label htmlFor="res-time">Choose time</label>
-            <select id="res-time" name="time" onChange={onChange}>
+            <select
+              id="res-time"
+              name="time"
+              onChange={onChange}
+              disabled={!date}
+              value={time}
+            >
+              <option value="default">Select Time</option>
               {availableTimes.map((time) => (
                 <option key={time} value={time}>
                   {time}
                 </option>
               ))}
             </select>
+            <div className="form_warning_container">
+              {!date && <p className="time">Select date first.</p>}
+            </div>
           </div>
         </div>
         <div className="form_row">
@@ -46,11 +53,17 @@ export const BookingForm = ({ onChange, date, time, guests, occasion }) => {
               id="guests"
               name="guests"
               onChange={onChange}
+              value={guests}
             />
           </div>
           <div className="form_input_container">
             <label htmlFor="occasion">Occasion</label>
-            <select id="occasion" name="occasion" onChange={onChange}>
+            <select
+              id="occasion"
+              name="occasion"
+              onChange={onChange}
+              value={occasion}
+            >
               <option value="">Select a location</option>
               <option value="Birthday">Birthday</option>
               <option value="Anniversary">Anniversary</option>

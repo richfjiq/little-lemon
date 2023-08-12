@@ -43,6 +43,7 @@ const Testimonials = () => {
               rating={rating}
               image={image}
               review={review}
+              key={name}
             />
           ))}
         </div>
