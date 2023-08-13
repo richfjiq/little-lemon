@@ -563,6 +563,10 @@ form select {
   background-size: 1em;
 }
 
+form button {
+  cursor: pointer;
+}
+
 .form_row {
   width: 100%;
   display: flex;
@@ -599,6 +603,57 @@ p.time {
   position: absolute;
   padding-top: 5px;
   margin: 0;
+}
+
+/* ==================== Booking Confirm ==================== */
+
+.booking_confirm {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.booking_confirm_container {
+  background-color: #edefee;
+  display: flex;
+  padding: 50px 20px;
+  width: 50%;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 80px;
+  border-radius: 16px;
+}
+
+.booking_confirm_container h1 {
+  margin: 0;
+  line-height: 80%;
+  color: #333333;
+  font-size: 50px;
+}
+
+.booking_confirm_details {
+  margin-top: 40px;
+}
+
+.booking_confirm_details h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #495e57;
+}
+
+.booking_confirm_button {
+  text-decoration: none;
+  padding: 15px 40px;
+  border-radius: 16px;
+  background-color: #f4ce14;
+  font-family: 'Karla';
+  font-size: 18px;
+  font-weight: 800;
+  color: #333333;
+  cursor: pointer;
+  margin-bottom: 150px;
 }
 
 @media (max-width: 900px) {

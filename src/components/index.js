@@ -1,4 +1,5 @@
 export { default as About } from './About';
+export { default as BookingConfirm } from './BookingConfirm';
 export { default as BookingPage } from './BookingPage';
 export { default as CardDish } from './CardDish';
 export { default as Footer } from './Footer';
