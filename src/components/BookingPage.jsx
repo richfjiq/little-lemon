@@ -27,6 +27,8 @@ const BookingPage = () => {
     occasion: '',
   });
 
+  console.log(booking.date);
+
   const onChange = (e) => {
     setBooking((prev) => ({
       ...prev,

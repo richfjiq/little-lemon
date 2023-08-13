@@ -12,7 +12,7 @@ export const BookingForm = ({
       <form>
         <div className="form_row">
           <div className="form_input_container">
-            <label htmlFor="res-date">Chose date</label>
+            <label htmlFor="res-date">Choose date</label>
             <input
               value={date}
               type="date"
@@ -27,11 +27,13 @@ export const BookingForm = ({
               id="res-time"
               name="time"
               onChange={onChange}
-              disabled={!date}
+              disabled={date ? false : true}
               value={time}
             >
               <option value="default">Select Time</option>
-              {availableTimes.map((time) => (
+              <option value="default">Select Time</option>
+              <option value="default">Select Time</option>
+              {availableTimes?.map((time) => (
                 <option key={time} value={time}>
                   {time}
                 </option>

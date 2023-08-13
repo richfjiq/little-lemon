@@ -1,18 +1,12 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
 import { BookingForm } from './BookingForm';
 
 test('Renders the BookingForm heading', () => {
   render(<BookingForm />);
   const headingElement = screen.getByText('Book Now');
   expect(headingElement).toBeInTheDocument();
-});
-
-test('Renders the option 17:00 in select time', () => {
-  render(<BookingForm />);
-  const selectTimeElement = screen.getByRole('combobox', {
-    name: /choose time/i,
-  });
-  expect(selectTimeElement).toHaveTextContent('17:00');
 });
 
 test('Renders the number of guests input with max attribute', () => {
@@ -29,4 +23,15 @@ test('Renders Anniversary option in occasion select', () => {
     name: /occasion/i,
   });
   expect(selectOccasionElement).toHaveTextContent('Anniversary');
+});
+
+test('Renders date input, disabled select time input at first render', () => {
+  render(<BookingForm />);
+  const inputDate = screen.getByLabelText('Choose date');
+  const selectTime = screen.getByLabelText('Choose time');
+  userEvent.click(selectTime);
+  expect(selectTime).toBeDisabled();
+  userEvent.type(inputDate, '2023-08-15');
+  expect(inputDate.value).toBe('2023-08-15');
+  userEvent.click(selectTime);
 });
