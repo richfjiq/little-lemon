@@ -29,9 +29,9 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a className="navbar_link" href="#reservations">
+            <Link className="navbar_link" to="/booking">
               Reservations
-            </a>
+            </Link>
           </li>
           <li>
             <a className="navbar_link" href="#order_online">

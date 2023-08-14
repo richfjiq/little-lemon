@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useReducer } from 'react';
 
 import { BookingForm } from './BookingForm';
 import Footer from './Footer';
@@ -8,9 +8,15 @@ import chef from '../assets/chef.jpg';
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case 'INITIALIZE_TIMES':
+      return {
+        ...state,
+        availableTimes: action.payload,
+      };
     case 'UPDATE_TIMES':
       return {
-        availableTimes: action.payload,
+        ...state,
+        date: action.payload,
       };
     default:
       return state;
@@ -18,35 +24,28 @@ const reducer = (state, action) => {
 };
 
 const BookingPage = () => {
-  const initialState = { availableTimes: [] };
-  const [{ availableTimes }, dispatch] = useReducer(reducer, initialState);
-  const [booking, setBooking] = useState({
-    date: '',
-    time: '',
-    guests: 1,
-    occasion: '',
-  });
+  const initialState = { availableTimes: [], date: '' };
+  const [{ availableTimes, date }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
-  console.log(booking.date);
-
-  const onChange = (e) => {
-    setBooking((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+  const initializeTimes = (times) => {
+    dispatch({ type: 'INITIALIZE_TIMES', payload: times });
   };
 
-  const updateTimes = (times) => {
-    dispatch({ type: 'UPDATE_TIMES', payload: times });
+  const updateTimes = (date) => {
+    dispatch({ type: 'UPDATE_TIMES', payload: date });
   };
 
   useEffect(() => {
-    if (booking.date) {
+    if (date) {
+      console.log('running ++++++++++++++++++++');
       fetch('http://localhost:8080/api/availability')
         .then((res) => res.json())
-        .then((data) => updateTimes(data.availableTimes));
+        .then((data) => initializeTimes(data.availableTimes));
     }
-  }, [booking.date]);
+  }, [date]);
 
   return (
     <>
@@ -61,11 +60,7 @@ const BookingPage = () => {
             <img src={chef} alt="Chef" />
           </div>
           <BookingForm
-            onChange={onChange}
-            date={booking.date}
-            tine={booking.time}
-            guests={booking.guests}
-            occasion={booking.occasion}
+            updateTimes={updateTimes}
             availableTimes={availableTimes}
           />
         </div>
