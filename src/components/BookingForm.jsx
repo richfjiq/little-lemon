@@ -1,8 +1,11 @@
 import { useEffect } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom';
+import moment from 'moment';
 
 export const BookingForm = ({ updateTimes, availableTimes }) => {
+  const navigate = useNavigate();
   const { handleSubmit, values, handleChange, errors, touched, handleBlur } =
     useFormik({
       initialValues: {
@@ -24,9 +27,24 @@ export const BookingForm = ({ updateTimes, availableTimes }) => {
           body: JSON.stringify(values),
         };
 
-        fetch('http://localhost:8080/api/booking', requestOptions)
+        fetch(`${process.env.REACT_APP_API_URL}/booking`, requestOptions)
           .then((res) => res.json())
-          .then((data) => console.log(data));
+          .then((data) => {
+            if (data.msg === 'Booking successful') {
+              const booking_guests = `${guests} people`;
+              const booking_date = `${moment(date).format(
+                'MMMM D'
+              )} at ${time}`;
+
+              navigate('/booking_confirm', {
+                state: {
+                  guests: booking_guests,
+                  date: booking_date,
+                },
+              });
+            }
+          })
+          .catch((error) => console.log(error));
       },
     });
 

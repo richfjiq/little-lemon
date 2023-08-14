@@ -1,12 +1,21 @@
-import React from 'react';
-import Navbar from './Navbar';
+import { useEffect } from 'react';
+
+import About from './About';
+import Footer from './Footer';
 import Header from './Header';
 import Main from './Main';
-import Footer from './Footer';
+import Navbar from './Navbar';
 import Testimonials from './Testimonials';
-import About from './About';
 
 const HomePage = () => {
+  // awake the API hosted on heroku
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_API_URL}/availability`)
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((e) => console.log(e));
+  }, []);
+
   return (
     <>
       <Navbar />

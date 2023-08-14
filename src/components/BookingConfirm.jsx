@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Footer from './Footer';
 import Navbar from './Navbar';
 
 const BookingConfirm = () => {
+  const params = useLocation();
+
   return (
     <>
       <Navbar />
@@ -16,8 +18,8 @@ const BookingConfirm = () => {
                 Your booking <br /> has been confirmed.
               </h1>
               <div className="booking_confirm_details">
-                <h3>5 people</h3>
-                <h3>August 15 at 17:00</h3>
+                <h3>{params.state.guests}</h3>
+                <h3>{params.state.date}</h3>
               </div>
             </div>
             <Link className="booking_confirm_button" to="/">

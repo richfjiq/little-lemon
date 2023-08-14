@@ -40,10 +40,12 @@ const BookingPage = () => {
 
   useEffect(() => {
     if (date) {
-      console.log('running ++++++++++++++++++++');
-      fetch('http://localhost:8080/api/availability')
+      fetch(`${process.env.REACT_APP_API_URL}/availability`)
         .then((res) => res.json())
-        .then((data) => initializeTimes(data.availableTimes));
+        .then((data) => {
+          initializeTimes(data.availableTimes);
+        })
+        .catch((e) => console.log(e));
     }
   }, [date]);
 
