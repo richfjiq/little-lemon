@@ -1,11 +1,9 @@
 import { useEffect } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 
-export const BookingForm = ({ updateTimes, availableTimes }) => {
-  const navigate = useNavigate();
+export const BookingForm = ({ updateTimes, availableTimes, navigation }) => {
   const { handleSubmit, values, handleChange, errors, touched, handleBlur } =
     useFormik({
       initialValues: {
@@ -36,7 +34,7 @@ export const BookingForm = ({ updateTimes, availableTimes }) => {
                 'MMMM D'
               )} at ${time}`;
 
-              navigate('/booking_confirm', {
+              navigation.navigate('/booking_confirm', {
                 state: {
                   guests: booking_guests,
                   date: booking_date,
@@ -49,6 +47,8 @@ export const BookingForm = ({ updateTimes, availableTimes }) => {
     });
 
   const { date, time, guests, occasion } = values;
+
+  console.log({ date });
 
   useEffect(() => {
     if (date) {
@@ -68,19 +68,27 @@ export const BookingForm = ({ updateTimes, availableTimes }) => {
               type="date"
               value={date}
               name="date"
+              id="date"
+              data-testid="date"
               onChange={handleChange}
               onBlur={handleBlur}
             />
             <div className="form_warning_container">
-              {touched.date && errors.date && (
-                <p className="time">{errors.date}</p>
-              )}
+              <p
+                className={
+                  touched.date && errors.date ? 'alert' : 'alert_inactive'
+                }
+                data-testid="alert-date"
+              >
+                {errors.date}
+              </p>
             </div>
           </div>
           <div className="form_input_container">
             <label htmlFor="time">Choose time</label>
             <select
               name="time"
+              id="time"
               onChange={handleChange}
               onBlur={handleBlur}
               disabled={date ? false : true}
@@ -94,10 +102,14 @@ export const BookingForm = ({ updateTimes, availableTimes }) => {
               ))}
             </select>
             <div className="form_warning_container">
-              {/* {!date && <p className="time">Select date first.</p>} */}
-              {touched.time && errors.time && (
-                <p className="time">{errors.time}</p>
-              )}
+              <p
+                className={
+                  touched.time && errors.time ? 'alert' : 'alert_inactive'
+                }
+                data-testid="alert-time"
+              >
+                {errors.time}
+              </p>
             </div>
           </div>
         </div>
@@ -108,6 +120,7 @@ export const BookingForm = ({ updateTimes, availableTimes }) => {
               type="number"
               placeholder="Guests"
               name="guests"
+              id="guests"
               onBlur={handleBlur}
               onChange={handleChange}
               value={guests}
@@ -115,27 +128,40 @@ export const BookingForm = ({ updateTimes, availableTimes }) => {
               max={8}
             />
             <div className="form_warning_container">
-              {touched.guests && errors.guests && (
-                <p className="time">{errors.guests}</p>
-              )}
+              <p
+                className={
+                  touched.guests && errors.guests ? 'alert' : 'alert_inactive'
+                }
+                data-testid="alert-guests"
+              >
+                {errors.guests}
+              </p>
             </div>
           </div>
           <div className="form_input_container">
             <label htmlFor="occasion">Occasion</label>
             <select
               name="occasion"
+              id="occasion"
               onBlur={handleBlur}
               onChange={handleChange}
               value={occasion}
             >
-              <option value="">Select a location</option>
+              <option value="">Select an occasion</option>
               <option value="Birthday">Birthday</option>
               <option value="Anniversary">Anniversary</option>
             </select>
             <div className="form_warning_container">
-              {touched.occasion && errors.occasion && (
-                <p className="time">{errors.occasion}</p>
-              )}
+              <p
+                className={
+                  touched.occasion && errors.occasion
+                    ? 'alert'
+                    : 'alert_inactive'
+                }
+                data-testid="alert-occasion"
+              >
+                {errors.occasion}
+              </p>
             </div>
           </div>
         </div>

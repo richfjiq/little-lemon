@@ -23,7 +23,7 @@ const reducer = (state, action) => {
   }
 };
 
-const BookingPage = () => {
+const BookingPage = ({ navigation }) => {
   const initialState = { availableTimes: [], date: '' };
   const [{ availableTimes, date }, dispatch] = useReducer(
     reducer,
@@ -64,6 +64,7 @@ const BookingPage = () => {
           <BookingForm
             updateTimes={updateTimes}
             availableTimes={availableTimes}
+            navigation={navigation}
           />
         </div>
       </div>

@@ -599,10 +599,18 @@ form button {
   position: relative;
 }
 
-p.time {
+p.alert {
   position: absolute;
   padding-top: 5px;
   margin: 0;
+  display: block;
+}
+
+p.alert_inactive {
+  position: absolute;
+  padding-top: 5px;
+  margin: 0;
+  display: none;
 }
 
 /* ==================== Booking Confirm ==================== */
