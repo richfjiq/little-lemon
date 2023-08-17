@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -23,6 +23,18 @@ const useAvailableTimes = () => {
     reducer,
     initialState
   );
+
+  useEffect(() => {
+    if (date) {
+      fetch(`${process.env.REACT_APP_API_URL}/availability`)
+        .then((res) => res.json())
+        .then((data) => {
+          initializeTimes(data.availableTimes);
+        })
+        .catch((e) => console.log(e));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [date]);
 
   const initializeTimes = (times) => {
     dispatch({ type: 'INITIALIZE_TIMES', payload: times });

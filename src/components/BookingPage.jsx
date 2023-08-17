@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 import { BookingForm } from './BookingForm';
 import Footer from './Footer';
 import Navbar from './Navbar';
@@ -10,22 +8,7 @@ import useAvailableTimes from '../hooks/useAvailableTimes';
 
 const BookingPage = () => {
   const navigate = useNavigate();
-  const { date, availableTimes, initializeTimes, updateTimes } =
-    useAvailableTimes();
-
-  console.log({ date });
-
-  useEffect(() => {
-    if (date) {
-      fetch(`${process.env.REACT_APP_API_URL}/availability`)
-        .then((res) => res.json())
-        .then((data) => {
-          initializeTimes(data.availableTimes);
-        })
-        .catch((e) => console.log(e));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [date]);
+  const { availableTimes, updateTimes } = useAvailableTimes();
 
   return (
     <>
