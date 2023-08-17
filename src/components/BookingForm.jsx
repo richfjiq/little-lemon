@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import moment from 'moment';
 
-export const BookingForm = ({ updateTimes, availableTimes, navigation }) => {
+export const BookingForm = ({ updateTimes, availableTimes, navigate }) => {
   const { handleSubmit, values, handleChange, errors, touched, handleBlur } =
     useFormik({
       initialValues: {
@@ -34,12 +34,16 @@ export const BookingForm = ({ updateTimes, availableTimes, navigation }) => {
                 'MMMM D'
               )} at ${time}`;
 
-              navigation.navigate('/booking_confirm', {
-                state: {
-                  guests: booking_guests,
-                  date: booking_date,
+              navigate(
+                '/booking_confirm',
+                {
+                  state: {
+                    guests: booking_guests,
+                    date: booking_date,
+                  },
                 },
-              });
+                { replace: true }
+              );
             }
           })
           .catch((error) => console.log(error));
@@ -47,8 +51,6 @@ export const BookingForm = ({ updateTimes, availableTimes, navigation }) => {
     });
 
   const { date, time, guests, occasion } = values;
-
-  console.log({ date });
 
   useEffect(() => {
     if (date) {
@@ -72,6 +74,7 @@ export const BookingForm = ({ updateTimes, availableTimes, navigation }) => {
               data-testid="date"
               onChange={handleChange}
               onBlur={handleBlur}
+              aria-label="date"
             />
             <div className="form_warning_container">
               <p
@@ -93,6 +96,7 @@ export const BookingForm = ({ updateTimes, availableTimes, navigation }) => {
               onBlur={handleBlur}
               disabled={date ? false : true}
               value={time}
+              aria-label="time"
             >
               <option value="default">Select Time</option>
               {availableTimes?.map((time) => (
@@ -126,6 +130,7 @@ export const BookingForm = ({ updateTimes, availableTimes, navigation }) => {
               value={guests}
               min={1}
               max={8}
+              aria-label="guests"
             />
             <div className="form_warning_container">
               <p
@@ -146,6 +151,7 @@ export const BookingForm = ({ updateTimes, availableTimes, navigation }) => {
               onBlur={handleBlur}
               onChange={handleChange}
               value={occasion}
+              aria-label="occasion"
             >
               <option value="">Select an occasion</option>
               <option value="Birthday">Birthday</option>
@@ -165,7 +171,7 @@ export const BookingForm = ({ updateTimes, availableTimes, navigation }) => {
             </div>
           </div>
         </div>
-        <button className="form_button" type="submit">
+        <button aria-label="Submit" className="form_button" type="submit">
           Make your reservation
         </button>
       </form>

@@ -14,32 +14,40 @@ const Navbar = () => {
         <Basket className="navbar_basket_icon" />
         <ul className="navbar_links_container">
           <li>
-            <Link className="navbar_link" to="/">
+            <Link aria-label="Homepage" className="navbar_link" to="/">
               Homepage
             </Link>
           </li>
           <li>
-            <a className="navbar_link" href="#about">
+            <a aria-label="About Us" className="navbar_link" href="#about">
               About Us
             </a>
           </li>
           <li>
-            <a className="navbar_link" href="#menu">
+            <a aria-label="Menu" className="navbar_link" href="#menu">
               Menu
             </a>
           </li>
           <li>
-            <Link className="navbar_link" to="/booking">
+            <Link
+              aria-label="Reservations"
+              className="navbar_link"
+              to="/booking"
+            >
               Reservations
             </Link>
           </li>
           <li>
-            <a className="navbar_link" href="#order_online">
+            <a
+              aria-label="Order Online"
+              className="navbar_link"
+              href="#order_online"
+            >
               Order Online
             </a>
           </li>
           <li>
-            <a className="navbar_link" href="#login">
+            <a aria-label="Login" className="navbar_link" href="#login">
               Login
             </a>
           </li>

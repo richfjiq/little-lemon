@@ -15,7 +15,7 @@ describe('Booking from component', () => {
 
     const headingElement = screen.getByText('Book Now');
     const dateElement = screen.getByTestId('date');
-    const timeElement = screen.getByRole('combobox', { name: /choose time/i });
+    const timeElement = screen.getByRole('combobox', { name: /time/i });
     const guestsElement = screen.getByRole('spinbutton');
     const occasionElement = screen.getByRole('combobox', { name: /occasion/i });
 
@@ -50,7 +50,8 @@ describe('Booking from component', () => {
     expect(alertOccasionElement.className).toBe('alert_inactive');
 
     // after render and click the submit button with empty inputs
-    userEvent.click(buttonElement);
+    // userEvent.click(buttonElement);
+    fireEvent.click(buttonElement);
 
     await waitFor(() => {
       expect(alertDateElement.className).toBe('alert');
@@ -80,7 +81,8 @@ describe('Booking from component', () => {
     const alertDateElement = screen.getByTestId('alert-date');
 
     // submit with empty date input
-    userEvent.click(buttonElement);
+    // userEvent.click(buttonElement);
+    fireEvent.click(buttonElement);
 
     await waitFor(() => {
       expect(dateElement.value).toBe('');
@@ -91,7 +93,8 @@ describe('Booking from component', () => {
     });
 
     // submit with date selected
-    userEvent.type(dateElement, '2023-08-08');
+    // userEvent.type(dateElement, '2023-08-08');
+    fireEvent.change(dateElement, { target: { value: '2023-08-08' } });
 
     await waitFor(() => {
       expect(dateElement.value).toBe('2023-08-08');
@@ -107,11 +110,11 @@ describe('Booking from component', () => {
       <BookingForm
         updateTimes={jest.fn()}
         availableTimes={['17:00', '18:00']}
-        navigation={jest.fn()}
+        navigate={jest.fn()}
       />
     );
 
-    const timeElement = screen.getByRole('combobox', { name: /choose time/i });
+    const timeElement = screen.getByRole('combobox', { name: /time/i });
     const alertTimeElement = screen.getByTestId('alert-time');
 
     // submit with date selected

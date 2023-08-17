@@ -22,7 +22,11 @@ const BookingConfirm = () => {
                 <h3>{params.state.date}</h3>
               </div>
             </div>
-            <Link className="booking_confirm_button" to="/">
+            <Link
+              aria-label="Link to Home"
+              className="booking_confirm_button"
+              to="/"
+            >
               Return Home
             </Link>
           </div>

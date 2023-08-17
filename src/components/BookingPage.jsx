@@ -1,42 +1,19 @@
-import { useEffect, useReducer } from 'react';
+import { useEffect } from 'react';
 
 import { BookingForm } from './BookingForm';
 import Footer from './Footer';
 import Navbar from './Navbar';
 import restaurant from '../assets/restaurant.jpg';
 import chef from '../assets/chef.jpg';
+import { useNavigate } from 'react-router-dom';
+import useAvailableTimes from '../hooks/useAvailableTimes';
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'INITIALIZE_TIMES':
-      return {
-        ...state,
-        availableTimes: action.payload,
-      };
-    case 'UPDATE_TIMES':
-      return {
-        ...state,
-        date: action.payload,
-      };
-    default:
-      return state;
-  }
-};
+const BookingPage = () => {
+  const navigate = useNavigate();
+  const { date, availableTimes, initializeTimes, updateTimes } =
+    useAvailableTimes();
 
-const BookingPage = ({ navigation }) => {
-  const initialState = { availableTimes: [], date: '' };
-  const [{ availableTimes, date }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
-
-  const initializeTimes = (times) => {
-    dispatch({ type: 'INITIALIZE_TIMES', payload: times });
-  };
-
-  const updateTimes = (date) => {
-    dispatch({ type: 'UPDATE_TIMES', payload: date });
-  };
+  console.log({ date });
 
   useEffect(() => {
     if (date) {
@@ -47,6 +24,7 @@ const BookingPage = ({ navigation }) => {
         })
         .catch((e) => console.log(e));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date]);
 
   return (
@@ -64,7 +42,7 @@ const BookingPage = ({ navigation }) => {
           <BookingForm
             updateTimes={updateTimes}
             availableTimes={availableTimes}
-            navigation={navigation}
+            navigate={navigate}
           />
         </div>
       </div>
