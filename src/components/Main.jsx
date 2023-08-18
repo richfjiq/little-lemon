@@ -32,7 +32,7 @@ const Main = () => {
     <section className="specials">
       <div className="specials_container">
         <div className="specials_header">
-          <h1>This weeks specials!</h1>
+          <h1>This week's specials!</h1>
           <button aria-label="Link to Menu Page">Online Menu</button>
         </div>
         <div className="specials_card_container">
