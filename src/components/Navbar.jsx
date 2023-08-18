@@ -1,7 +1,8 @@
+import { Link, NavLink } from 'react-router-dom';
+
+import { ReactComponent as Basket } from '../assets/basket.svg';
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { ReactComponent as Menu } from '../assets/hamburger_menu.svg';
-import { ReactComponent as Basket } from '../assets/basket.svg';
-import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -14,42 +15,46 @@ const Navbar = () => {
         <Basket className="navbar_basket_icon" />
         <ul className="navbar_links_container">
           <li>
-            <Link aria-label="Homepage" className="navbar_link" to="/">
+            <NavLink
+              aria-label="Homepage"
+              className={({ isActive }) =>
+                isActive ? 'navbar_link_active' : 'navbar_link'
+              }
+              to="/"
+            >
               Homepage
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <a aria-label="About Us" className="navbar_link" href="#about">
+            <NavLink aria-label="About Us" className="navbar_link" to="/">
               About Us
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a aria-label="Menu" className="navbar_link" href="#menu">
+            <NavLink aria-label="Menu" className="navbar_link" to="/">
               Menu
-            </a>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               aria-label="Reservations"
-              className="navbar_link"
+              className={({ isActive }) =>
+                isActive ? 'navbar_link_active' : 'navbar_link'
+              }
               to="/booking"
             >
               Reservations
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <a
-              aria-label="Order Online"
-              className="navbar_link"
-              href="#order_online"
-            >
+            <NavLink aria-label="Order Online" className="navbar_link" to="/">
               Order Online
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a aria-label="Login" className="navbar_link" href="#login">
+            <NavLink aria-label="Login" className="navbar_link" to="/">
               Login
-            </a>
+            </NavLink>
           </li>
         </ul>
       </div>

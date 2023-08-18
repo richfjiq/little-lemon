@@ -1,4 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
+
+import { ReactComponent as Birthday } from '../assets/cake.svg';
+import { ReactComponent as Champagne } from '../assets/champagne.svg';
 import Footer from './Footer';
 import Navbar from './Navbar';
 
@@ -17,6 +20,14 @@ const BookingConfirm = () => {
               <h1>
                 Your booking <br /> has been confirmed.
               </h1>
+              <div className="booking_confirm_occasion">
+                {params.state.occasion === 'Birthday' ? (
+                  <Birthday className="booking_confirm_icon" />
+                ) : (
+                  <Champagne className="booking_confirm_icon" />
+                )}
+                <h3>{`Happy ${params.state.occasion}`}</h3>
+              </div>
               <div className="booking_confirm_details">
                 <h3>{params.state.guests}</h3>
                 <h3>{params.state.date}</h3>

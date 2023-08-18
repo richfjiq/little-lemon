@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;500;600;700&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Karla', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -15,7 +16,7 @@ code {
 /* Navbar */
 
 nav {
-  height: 130px;
+  height: 100px;
   display: flex;
   justify-content: center;
 }
@@ -51,10 +52,19 @@ li {
 
 a.navbar_link {
   text-decoration: none;
-  color: black;
+  color: #333333;
   font-family: 'Karla';
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 600;
+  margin-left: 20px;
+}
+
+a.navbar_link_active {
+  text-decoration: none;
+  color: #495e57;
+  font-family: 'Karla';
+  font-size: 18px;
+  font-weight: 800;
   margin-left: 20px;
 }
 
@@ -122,6 +132,11 @@ header button {
   font-size: 18px;
   font-weight: 800;
   cursor: pointer;
+  color: #333333;
+}
+
+header button:hover {
+  background-color: #f3c006;
 }
 
 .header_image {
@@ -174,6 +189,11 @@ header button {
   font-size: 18px;
   font-weight: 800;
   cursor: pointer;
+  color: #333333;
+}
+
+.specials button:hover {
+  background-color: #f3c006;
 }
 
 .specials_card_container {
@@ -410,11 +430,21 @@ header button {
 
 /* Footer */
 
-footer {
+.footer {
+  width: 100%;
+  height: 400px;
+  background-color: white;
+  color: #495e57;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer_green {
   width: 100%;
   height: 400px;
   background-color: #495e57;
-  color: white;
+  color: #edefee;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -422,7 +452,6 @@ footer {
 
 footer img {
   height: 280px;
-  cursor: pointer;
 }
 
 footer h3 {
@@ -446,6 +475,14 @@ footer li {
   cursor: pointer;
 }
 
+.footer_subcontainer li:hover {
+  color: #c4c7c5;
+}
+
+.footer .footer_subcontainer li:hover {
+  color: #85a29a;
+}
+
 .footer_container {
   max-width: 860px;
   width: 100%;
@@ -464,6 +501,14 @@ footer li {
 
 .footer_media_icon_green path {
   fill: #495e57;
+}
+
+.footer_media_icon:hover path {
+  fill: #c4c7c5;
+}
+
+.footer_media_icon_green:hover path {
+  fill: #85a29a;
 }
 
 /* ==================== Booking ==================== */
@@ -591,8 +636,13 @@ form button {
   border: none;
   font-size: 18px;
   font-family: 'Karla';
-  font-weight: 900;
+  font-weight: 800;
   background-color: #f4ce14;
+  color: #333333;
+}
+
+.form_button:hover {
+  background-color: #f3c006;
 }
 
 .form_warning_container {
@@ -645,6 +695,21 @@ p.alert_inactive {
   margin-top: 40px;
 }
 
+.booking_confirm_occasion {
+  margin-top: 40px;
+}
+
+.booking_confirm_occasion h3 {
+  margin-top: 10px;
+  margin-bottom: 0;
+  color: #495e57;
+}
+
+.booking_confirm_icon {
+  fill: #495e57;
+  width: 80px;
+}
+
 .booking_confirm_details h3 {
   margin-top: 0;
   margin-bottom: 15px;
@@ -662,6 +727,10 @@ p.alert_inactive {
   color: #333333;
   cursor: pointer;
   margin-bottom: 150px;
+}
+
+.booking_confirm_button:hover {
+  background-color: #f3c006;
 }
 
 @media (max-width: 900px) {

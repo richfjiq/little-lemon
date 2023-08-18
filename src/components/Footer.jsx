@@ -1,13 +1,13 @@
-import footerLogo from '../assets/logo_footer.png';
-import footerLogoWhite from '../assets/logo_footer_white.png';
 import { ReactComponent as Facebook } from '../assets/facebook_white.svg';
 import { ReactComponent as Instagram } from '../assets/instagram_white.svg';
 import { ReactComponent as TikTok } from '../assets/tiktok_white.svg';
 import { ReactComponent as WhatsApp } from '../assets/whatsapp_white.svg';
+import footerLogo from '../assets/logo_footer.png';
+import footerLogoWhite from '../assets/logo_footer_white.png';
 
 const Footer = ({ white = false }) => {
   return (
-    <footer style={white ? { color: '#495e57', backgroundColor: 'white' } : {}}>
+    <footer className={white ? 'footer' : 'footer_green'}>
       <div className="footer_container">
         <div className="footer_subcontainer">
           {white ? (

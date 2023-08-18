@@ -29,17 +29,13 @@ export const BookingForm = ({ updateTimes, availableTimes, navigate }) => {
           .then((res) => res.json())
           .then((data) => {
             if (data.msg === 'Booking successful') {
-              const booking_guests = `${guests} people`;
-              const booking_date = `${moment(date).format(
-                'MMMM D'
-              )} at ${time}`;
-
               navigate(
                 '/booking_confirm',
                 {
                   state: {
-                    guests: booking_guests,
-                    date: booking_date,
+                    guests: `${guests} people`,
+                    date: `${moment(date).format('MMMM D')} at ${time}`,
+                    occasion: values.occasion,
                   },
                 },
                 { replace: true }
@@ -75,6 +71,7 @@ export const BookingForm = ({ updateTimes, availableTimes, navigate }) => {
               onChange={handleChange}
               onBlur={handleBlur}
               aria-label="date"
+              min={moment().format('YYYY-MM-DD')}
             />
             <div className="form_warning_container">
               <p

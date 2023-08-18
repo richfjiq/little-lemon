@@ -1,8 +1,9 @@
-import { render } from '@testing-library/react';
-import BookingPage from './BookingPage';
-import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 import { isValidElement } from 'react';
+import { render } from '@testing-library/react';
+import { RouterProvider, createMemoryRouter } from 'react-router-dom';
+
 import { BookingForm } from './BookingForm';
+import BookingPage from './BookingPage';
 
 function renderWithRouter(children, routes = []) {
   const options = isValidElement(children)

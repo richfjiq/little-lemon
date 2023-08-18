@@ -1,8 +1,8 @@
-import jack from '../assets/jack_1.jpg';
-import michelle from '../assets/michelle_2.jpg';
-import laura from '../assets/laura_4.jpg';
-import philipp from '../assets/philipp_3.jpg';
 import CardTestimonial from './CardTestimonial';
+import jack from '../assets/jack_1.jpg';
+import laura from '../assets/laura_4.jpg';
+import michelle from '../assets/michelle_2.jpg';
+import philipp from '../assets/philipp_3.jpg';
 
 const testimonials = [
   {

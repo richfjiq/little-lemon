@@ -1,7 +1,7 @@
+import bruchetta from '../assets/bruchetta.jpg';
 import CardDish from './CardDish';
 import greekSalad from '../assets/greek salad.jpg';
 import lemonDessert from '../assets/lemon dessert.jpg';
-import bruchetta from '../assets/bruchetta.jpg';
 
 const dishes = [
   {
