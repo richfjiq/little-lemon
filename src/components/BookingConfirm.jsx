@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 
-import { ReactComponent as Birthday } from '../assets/cake.svg';
-import { ReactComponent as Champagne } from '../assets/champagne.svg';
+import { ReactComponent as Birthday } from '../assets/icons/cake.svg';
+import { ReactComponent as Champagne } from '../assets/icons/champagne.svg';
 import Footer from './Footer';
 import Navbar from './Navbar';
 

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import imageFood from '../assets/header_food.jpg';
+import imageFood from '../assets/images/header_food.jpg';
 
 const Header = () => {
   return (

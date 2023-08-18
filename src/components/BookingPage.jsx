@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 
 import { BookingForm } from './BookingForm';
-import chef from '../assets/chef.jpg';
+import chef from '../assets/images/chef.jpg';
 import Footer from './Footer';
 import Navbar from './Navbar';
-import restaurant from '../assets/restaurant.jpg';
+import restaurant from '../assets/images/restaurant.jpg';
 import useAvailableTimes from '../hooks/useAvailableTimes';
 
 const BookingPage = () => {

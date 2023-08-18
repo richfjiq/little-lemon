@@ -1,9 +1,9 @@
-import { ReactComponent as Facebook } from '../assets/facebook_white.svg';
-import { ReactComponent as Instagram } from '../assets/instagram_white.svg';
-import { ReactComponent as TikTok } from '../assets/tiktok_white.svg';
-import { ReactComponent as WhatsApp } from '../assets/whatsapp_white.svg';
-import footerLogo from '../assets/logo_footer.png';
-import footerLogoWhite from '../assets/logo_footer_white.png';
+import { ReactComponent as Facebook } from '../assets/icons/facebook_white.svg';
+import { ReactComponent as Instagram } from '../assets/icons/instagram_white.svg';
+import { ReactComponent as TikTok } from '../assets/icons/tiktok_white.svg';
+import { ReactComponent as WhatsApp } from '../assets/icons/whatsapp_white.svg';
+import footerLogo from '../assets/icons/logo_footer.png';
+import footerLogoWhite from '../assets/icons/logo_footer_white.png';
 
 const Footer = ({ white = false }) => {
   return (

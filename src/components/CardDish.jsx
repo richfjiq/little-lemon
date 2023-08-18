@@ -1,4 +1,4 @@
-import { ReactComponent as Delivery } from '../assets/delivery.svg';
+import { ReactComponent as Delivery } from '../assets/icons/delivery.svg';
 
 const CardDish = ({ title, price, description, image }) => {
   return (

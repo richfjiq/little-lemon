@@ -1,8 +1,8 @@
 import { Link, NavLink } from 'react-router-dom';
 
-import { ReactComponent as Basket } from '../assets/basket.svg';
-import { ReactComponent as Logo } from '../assets/logo.svg';
-import { ReactComponent as Menu } from '../assets/hamburger_menu.svg';
+import { ReactComponent as Basket } from '../assets/icons/basket.svg';
+import { ReactComponent as Logo } from '../assets/icons/logo.svg';
+import { ReactComponent as Menu } from '../assets/icons/hamburger_menu.svg';
 
 const Navbar = () => {
   return (

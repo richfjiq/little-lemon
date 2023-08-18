@@ -1,5 +1,5 @@
-import aboutA from '../assets/about_a.jpg';
-import aboutB from '../assets/about_b.jpg';
+import aboutA from '../assets/images/about_a.jpg';
+import aboutB from '../assets/images/about_b.jpg';
 
 const About = () => {
   return (
