@@ -300,9 +300,9 @@ header button:hover {
 .testimonials {
   background-color: #495e57;
   width: 100%;
-  height: 500px;
   display: flex;
   justify-content: center;
+  padding: 100px 0 150px;
 }
 
 .testimonials h2 {
@@ -369,10 +369,10 @@ header button:hover {
 
 .about {
   width: 100%;
-  height: 570px;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 60px 0;
 }
 
 .about_container {
@@ -438,8 +438,8 @@ header button:hover {
 /* Footer */
 
 .footer {
+  padding: 50px 0;
   width: 100%;
-  height: 400px;
   background-color: white;
   color: #495e57;
   display: flex;
@@ -448,8 +448,8 @@ header button:hover {
 }
 
 .footer_green {
+  padding: 50px 0;
   width: 100%;
-  height: 400px;
   background-color: #495e57;
   color: #edefee;
   display: flex;
@@ -493,7 +493,6 @@ footer li {
 .footer_container {
   max-width: 860px;
   width: 100%;
-  height: 280px;
   display: flex;
 }
 
@@ -813,9 +812,55 @@ p.alert_inactive {
 
   /* Testimonials */
 
+  .testimonials {
+    padding: 50px 0 70px;
+  }
+
+  .testimonials h2 {
+    margin-bottom: 30px;
+  }
+
   .testimonials_cards_container {
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
+  }
+
+  /* Card testimonial */
+
+  .card_testimonial {
+    width: 175px;
+    margin: 30px 30px;
+  }
+
+  /* About */
+
+  .about_container {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    height: auto;
+  }
+
+  .about_left_container {
+    width: 60%;
+    height: auto;
+    padding: 0;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+
+  .about_right_container {
+    width: 100%;
+    display: flex;
+    height: auto;
+    justify-content: space-around;
+  }
+
+  .about_image_b {
+    width: 275px;
+    height: 340px;
+    object-fit: cover;
+    position: static;
   }
 }
 
@@ -877,6 +922,18 @@ p.alert_inactive {
   .card_dish_content {
     width: 75%;
     height: 175px;
+    padding-right: 0;
+    padding-left: 10px;
+  }
+
+  /* Footer */
+
+  .footer_container {
+    padding: 0 30px;
+  }
+
+  footer img {
+    height: 180px;
   }
 }
 
@@ -926,5 +983,34 @@ p.alert_inactive {
   .card_dish_content {
     width: 75%;
     height: 200px;
+  }
+
+  /* About */
+  .about_left_container {
+    width: 100%;
+    padding: 0 30px;
+  }
+
+  .about_image_a {
+    width: 165px;
+    height: 204px;
+  }
+
+  .about_image_b {
+    width: 165px;
+    height: 204px;
+  }
+
+  /* Footer */
+
+  .footer_container {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .footer_subcontainer {
+    width: 250px;
+    margin-bottom: 20px;
+    text-align: center;
   }
 }
